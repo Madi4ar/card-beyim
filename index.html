@@ -154,7 +154,7 @@
             </div>
 
 
-            <div class="bg-white w-full md:w-80 fixed md:absolute top-0 h-full left-0 md:top-20 rounded-lg filter shadow-md ">
+            <div class="bg-white w-full md:w-80 fixed md:absolute top-0 h-full md:h-auto right-0 md:top-20 rounded-lg filter shadow-md ">
               <div
                 class="flex items-center justify-between rounded-t-lg bg-[#F9F9F9] p-3.5"
               >
@@ -248,7 +248,7 @@
                 </div>
               </div>
               
-              <button class="bg-blue-500 absolute bottom-5 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex justify-center items-center w-[80%] mx-auto left-[10%]">
+              <button class="apply md:hidden bg-blue-500 absolute bottom-5 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex justify-center items-center w-[80%] mx-auto left-[10%]">
                 <p>Применить</p>
               </button>
             </div>
@@ -770,6 +770,7 @@
       let filterOpen = document.querySelector('.filter-open');
       let filter = document.querySelector('.filter');
       let close = document.querySelector('.close');
+      let applyBtn = document.querySelector('.apply')
       filterOpen.onclick = function() {
         filter.classList.toggle('open');
       }
@@ -777,6 +778,11 @@
       close.onclick = function() {
         filter.classList.remove('open');
       }
+
+      applyBtn.onclick = function() {
+        filter.classList.remove('open');
+      }
+
       new SlimSelect({
         select: '#multiple',
         settings: {
