@@ -807,14 +807,18 @@
       let stars = new StarRating('.star-rating');
       stars.rebuild();
 
-      document.getElementById('link').addEventListener('click', function(event) {
-        event.preventDefault();
-        let link = this.getAttribute('href');
-        navigator.clipboard.writeText(link).then(function() {
-            alert('Ссылка скопирована в буфер обмена');
-        }, function() {
-            alert('Ошибка при копировании ссылки');
-        });
+      let links = document.querySelectorAll('#link');
+
+      links.forEach(function(link) {
+          link.addEventListener('click', function(event) {
+              event.preventDefault();
+              let linkUrl = this.getAttribute('href');
+              navigator.clipboard.writeText(linkUrl).then(function() {
+                  alert('Ссылка скопирована в буфер обмена');
+              }, function() {
+                  alert('Ошибка при копировании ссылки');
+              });
+          });
       });
 
     </script>
